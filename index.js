@@ -4,7 +4,7 @@ var config = require('./config');
 const sonosRouter = require('./sonosrouter');
 
 let routeSonosCommand = (carr, res) => 
-    config.sayincmd[carr.cmd] ? sonosRouter['playurl'](res, getSonosTTSUrl(carr.text, config.sayincmd[carr.cmd]))
+    config.sayInCmd[carr.cmd] ? sonosRouter['playurl'](res, getSonosTTSUrl(carr.text, config.sayInCmd[carr.cmd]))
   : sonosRouter[carr.cmd] ? sonosRouter[carr.cmd](res, carr.text)
   : sonosRouter['help'](res);
 
@@ -14,21 +14,23 @@ let parseSlashText = (text) => ({
 });
 
 let getSonosTTSUrl = (text, lang) =>
-  config.serverurl+'/say/'+encodeURIComponent(text)+'.mp3?l='+lang;
+  config.serverUrl+'/say/'+encodeURIComponent(text)+'.mp3?l='+lang;
 
-let isSonosCommand = (command) => (command == config.slashcommand);
+let isSonosCommand = (command) => (command == config.slashCommand);
 
-module.exports = function (app, arrTextNotNeeded, arrTextNeeded) {
-  let module = {};
+module.exports = function (app, arrTextNotNeeded, arrTextNeeded, acceptedTokens) {
 
   let runSonosCommand = (req, res, next) => {
     if(!isSonosCommand(req.body.command) || !routeSonosCommand(parseSlashText(req.body.text), res)) next();
   }
 
-  let setSlashCommand = (command) => config.slashcommand = command;
-
   arrTextNotNeeded.push(runSonosCommand);
   require('talkiteasy')(app);
+
+  let module = {};
+
+  module.setSlashCommand = (command) => config.slashCommand = command;
+  module.getToken = () => config.slashToken;
 
   return module;
 }

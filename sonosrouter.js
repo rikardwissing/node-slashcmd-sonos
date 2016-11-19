@@ -1,7 +1,7 @@
 "use strict";
 
 const config = require('./config');
-const sonos = new (require('sonos').Sonos)(config.sonoshost, config.sonosport);
+const sonos = new (require('sonos').Sonos)(config.sonosHost, config.sonosPort);
 
 let sonosRouter = {};
 
