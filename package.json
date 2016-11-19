@@ -1,0 +1,23 @@
+{
+  "name": "node-slashcmd-sonos",
+  "version": "1.0.0",
+  "description": "adds /sonos command to node-slashcmd server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rikardwissing/node-slashcmd-sonos.git"
+  },
+  "author": "Rikard Wissing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rikardwissing/node-slashcmd-sonos/issues"
+  },
+  "homepage": "https://github.com/rikardwissing/node-slashcmd-sonos#readme",
+  "dependencies": {
+    "sonos": "^0.12.1",
+    "talkiteasy": "git://github.com/rikardwissing/node-talkiteasy.git"
+  }
+}
