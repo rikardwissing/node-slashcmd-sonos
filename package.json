@@ -1,5 +1,5 @@
 {
-  "name": "node-slashcmd-sonos",
+  "name": "slashcmd-sonos",
   "version": "1.0.0",
   "description": "adds /sonos command to node-slashcmd server",
   "main": "index.js",
