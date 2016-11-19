@@ -14,7 +14,7 @@ let parseSlashText = (text) => ({
 });
 
 let getSonosTTSUrl = (text, lang) =>
-  config.serverUrl+'/say/'+encodeURIComponent(text)+'.mp3?l='+lang;
+  config.serverUrl+'/say/'+encodeURIComponent(text)+'.mp3?language='+lang;
 
 let isSonosCommand = (command) => (command == config.slashCommand);
 
