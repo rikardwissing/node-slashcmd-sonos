@@ -32,6 +32,5 @@ module.exports = function (app, arrTextNotNeeded, arrTextNeeded, acceptedTokens)
   module.setSlashCommand = (command) => config.slashCommand = command;
   module.getToken = () => config.slashToken;
 
-
   return module;
 }
