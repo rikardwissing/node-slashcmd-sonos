@@ -25,7 +25,7 @@ module.exports = function (app, arrTextNotNeeded, arrTextNeeded, acceptedTokens)
   }
 
   arrTextNotNeeded.push(runSonosCommand);
-  app.get('/say/:text.:codec', (req, res) => require('talkiteasy').pipe(res, req));
+  app.get('/say/:text.:codec', (req, res) => require('talkiteasy')().pipe(res, req));
 
   let module = {};
 
