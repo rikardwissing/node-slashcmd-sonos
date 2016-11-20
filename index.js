@@ -25,12 +25,13 @@ module.exports = function (app, arrTextNotNeeded, arrTextNeeded, acceptedTokens)
   }
 
   arrTextNotNeeded.push(runSonosCommand);
-  require('talkiteasy')(app);
+  app.get('/say/:text.:codec', (req, res) => require('talkiteasy').pipe(res, req.params.text, reqToOptions(req)));
 
   let module = {};
 
   module.setSlashCommand = (command) => config.slashCommand = command;
   module.getToken = () => config.slashToken;
+
 
   return module;
 }
